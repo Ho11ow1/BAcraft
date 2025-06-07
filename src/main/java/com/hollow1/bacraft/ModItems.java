@@ -14,20 +14,20 @@
 */
 package com.hollow1.bacraft;
 //
+import com.hollow1.bacraft.items.SchoolChanger;
+//
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems
 {
-    public static final Item SchoolPicker = new Item(new Item.Settings()); // Add a function to this item
+    public static final Item schoolChanger = new SchoolChanger(new Item.Settings());
 
     public static void registerItems()
     {
-        Registry.register(Registries.ITEM, new Identifier(BAcraft.MOD_ID, "SchoolPicker"), SchoolPicker);
+        Registry.register(Registries.ITEM, new Identifier(BAcraft.modID.toLowerCase(), "school_changer"), schoolChanger);
     }
 
 }

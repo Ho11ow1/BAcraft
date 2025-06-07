@@ -14,22 +14,45 @@
 */
 package com.hollow1.bacraft;
 //
+//
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+//
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+//
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class BAcraft implements ModInitializer
 {
-	public static final String MOD_ID = "BAcraft";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final String modID = "BAcraft";
+	public static final Logger logger = LoggerFactory.getLogger(modID);
+    public static Map<UUID, School> studentList = new HashMap<UUID, School>();
 
 	@Override
 	public void onInitialize()
 	{
-		LOGGER.info("{} initialized by Hollow1!", MOD_ID);
-		// register items
+		logger.info("{} initialized by Hollow1!", modID);
+        School.initializeSchools();
+        ModItems.registerItems();
+
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+            ServerPlayerEntity player = handler.getPlayer();
+            onPlayerJoin(player);
+        });
 	}
 
+    private void onPlayerJoin(ServerPlayerEntity player)
+    {
+        UUID playerID = player.getUuid();
 
+        SchoolAssigner.assignSchool(playerID);
+        player.sendMessage(Text.literal("You've been assigned the school of " + studentList.get(playerID).getSchoolName() + "."), false);
+        logger.info("Assigned school({}) to player({})",studentList.get(playerID).getSchoolName() , player.getName().getString());
+    }
 }
 

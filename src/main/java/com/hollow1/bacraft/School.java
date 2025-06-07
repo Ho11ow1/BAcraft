@@ -14,17 +14,30 @@
 */
 package com.hollow1.bacraft;
 //
-
+import com.hollow1.bacraft.schools.Millennium;
+import com.hollow1.bacraft.schools.Trinity;
+//
+import java.util.ArrayList;
+import java.util.List;
 
 public class School
 {
     private final String schoolName;
     private final Emblem emblem;
+    public static final List<School> schoolList = new ArrayList<School>();
 
     public School(String schoolName, Emblem emblem)
     {
         this.schoolName = schoolName;
         this.emblem = emblem;
+    }
+
+    public String getSchoolName() { return schoolName; }
+
+    public static void initializeSchools()
+    {
+        schoolList.add(new Trinity());
+        schoolList.add(new Millennium());
     }
 
     public static class Emblem
