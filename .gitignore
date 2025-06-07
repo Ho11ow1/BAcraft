@@ -1,0 +1,19 @@
+# IntelliJ directories / files
+.idea/
+*.iml
+*.iws
+
+# Gradle files
+.gradle/
+build/
+out/
+
+# Minecraft run directory
+run/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
