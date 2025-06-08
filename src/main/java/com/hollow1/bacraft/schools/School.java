@@ -12,10 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.hollow1.bacraft;
-//
-import com.hollow1.bacraft.schools.Millennium;
-import com.hollow1.bacraft.schools.Trinity;
+package com.hollow1.bacraft.schools;
 //
 import java.util.ArrayList;
 import java.util.List;

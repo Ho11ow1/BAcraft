@@ -1,7 +1,7 @@
 package com.hollow1.bacraft.items;
 //
 import com.hollow1.bacraft.BAcraft;
-import com.hollow1.bacraft.SchoolAssigner;
+import com.hollow1.bacraft.schools.SchoolAssigner;
 //
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

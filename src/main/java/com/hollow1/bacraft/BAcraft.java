@@ -14,9 +14,12 @@
 */
 package com.hollow1.bacraft;
 //
+import com.hollow1.bacraft.schools.School;
+import com.hollow1.bacraft.schools.SchoolAssigner;
 //
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+//
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 //
