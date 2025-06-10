@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEB",
+    "EBE",
+    "B  "
+  ],
+  "key": {
+    "E": { "item": "minecraft:end_rod" },
+    "B": { "item": "minecraft:diamond_block" }
+  },
+  "result": {
+    "item": "bacraft:school_changer",
+    "count": 1
+  }
+}

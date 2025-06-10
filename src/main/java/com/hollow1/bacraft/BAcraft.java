@@ -14,9 +14,12 @@
 */
 package com.hollow1.bacraft;
 //
+import com.hollow1.bacraft.schools.School;
+import com.hollow1.bacraft.schools.SchoolManager;
 //
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+//
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 //
@@ -29,9 +32,9 @@ import java.util.UUID;
 
 public class BAcraft implements ModInitializer
 {
-	public static final String modID = "BAcraft";
-	public static final Logger logger = LoggerFactory.getLogger(modID);
+	public static final String modID = "bacraft";
     public static Map<UUID, School> studentList = new HashMap<UUID, School>();
+	private final Logger logger = LoggerFactory.getLogger(modID);
 
 	@Override
 	public void onInitialize()
@@ -50,7 +53,7 @@ public class BAcraft implements ModInitializer
     {
         UUID playerID = player.getUuid();
 
-        SchoolAssigner.assignSchool(playerID);
+        SchoolManager.assignSchool(playerID);
         player.sendMessage(Text.literal("You've been assigned the school of " + studentList.get(playerID).getSchoolName() + "."), false);
         logger.info("Assigned school({}) to player({})",studentList.get(playerID).getSchoolName() , player.getName().getString());
     }

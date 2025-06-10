@@ -12,12 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hollow1.bacraft;
+package com.hollow1.bacraft.schools;
+//
+import com.hollow1.bacraft.BAcraft;
 //
 import java.util.Random;
 import java.util.UUID;
 
-public class SchoolAssigner
+public class SchoolManager
 {
     private static final Random rand = new Random();
 

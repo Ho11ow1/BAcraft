@@ -1,7 +1,7 @@
 package com.hollow1.bacraft.items;
 //
 import com.hollow1.bacraft.BAcraft;
-import com.hollow1.bacraft.SchoolAssigner;
+import com.hollow1.bacraft.schools.SchoolManager;
 //
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -32,7 +32,7 @@ public class SchoolChanger extends Item
 
             try
             {
-                SchoolAssigner.changeSchool(playerID);
+                SchoolManager.changeSchool(playerID);
                 player.sendMessage(Text.literal("School assigned successfully! (new school: " + BAcraft.studentList.get(playerID).getSchoolName() + ")"), false);
 
                 // Add cooldown (in ticks, 20 ticks = 1 second)

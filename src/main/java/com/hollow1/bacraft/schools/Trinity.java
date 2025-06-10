@@ -14,13 +14,12 @@
 */
 package com.hollow1.bacraft.schools;
 //
-import com.hollow1.bacraft.School;
 
 public class Trinity extends School
 {
     public Trinity()
     {
-        super("Trinity", new Emblem(""));
+        super("trinity", new Emblem(""));
     }
 
 }
