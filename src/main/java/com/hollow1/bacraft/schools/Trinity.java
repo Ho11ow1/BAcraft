@@ -19,7 +19,7 @@ public class Trinity extends School
 {
     public Trinity()
     {
-        super("Trinity", new Emblem(""));
+        super("trinity", new Emblem(""));
     }
 
 }

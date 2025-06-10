@@ -19,6 +19,6 @@ public class Millennium extends School
 {
     public Millennium()
     {
-        super("Millennium", new Emblem(""));
+        super("millennium", new Emblem(""));
     }
 }

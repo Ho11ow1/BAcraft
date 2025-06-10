@@ -19,7 +19,7 @@ import com.hollow1.bacraft.BAcraft;
 import java.util.Random;
 import java.util.UUID;
 
-public class SchoolAssigner
+public class SchoolManager
 {
     private static final Random rand = new Random();
 
