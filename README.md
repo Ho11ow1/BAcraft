@@ -15,10 +15,10 @@
 <br/>
 A [Blue Archive](https://bluearchive.nexon.com/home) inspired minecraft mod bringing parts of Kivotos into the world of minecraft
 <br/>
-
+<br/>
 
 ## Key Features
-> **Important Note**: While most, if not all, 'Key' features will be included, some may not be fully fleshed out in the initial release.
+> ⚠️ **Important Note**: While most, if not all, 'Key' features will be included, some may not be fully fleshed out in the initial release.
 - **School infrastructure**: Discover key locations like the café and classrooms, each offering unique environments
 - **Aesthetic Overhaul**: Custom textures, UI elements, and visual effects that capture the Blue Archive art style
 - **School Effects**: Each school will influence gameplay in a meaningful way, reinforcing its affiliation through various mechanics
@@ -26,7 +26,7 @@ A [Blue Archive](https://bluearchive.nexon.com/home) inspired minecraft mod brin
 
 
 ## Project Status
-> **Important Note**: This project is currently in a very early stage of development. Features may change,<br/> be revamped or completely removed
+> ⚠️ **Important Note**: This project is currently in a very early stage of development. Features may change, be revamped or completely removed
 
 Current Development Phase::
 - [x] Core architecture design
