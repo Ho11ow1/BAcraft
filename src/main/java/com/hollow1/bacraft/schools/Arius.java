@@ -19,16 +19,16 @@ import com.hollow1.bacraft.common.School;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 
-public class Millennium extends School
+public class Arius extends School
 {
-    public Millennium()
+    public Arius()
     {
-        super("Millennium", new Emblem(""));
+        super("Arius", new Emblem(""));
     }
 
     @Override
     public StatusEffectInstance getTickEffect()
     {
-        return new StatusEffectInstance(StatusEffects.RESISTANCE, 1, 0, false, false);
+        return new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 1, 0, false, false);
     }
 }

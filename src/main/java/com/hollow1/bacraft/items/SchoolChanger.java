@@ -1,7 +1,21 @@
+/* Copyright 2025 Hollow1
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package com.hollow1.bacraft.items;
 //
 import com.hollow1.bacraft.BAcraft;
-import com.hollow1.bacraft.schools.SchoolManager;
+import com.hollow1.bacraft.common.SchoolManager;
 //
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -15,17 +29,13 @@ import java.util.UUID;
 
 public class SchoolChanger extends Item
 {
-    public SchoolChanger(Settings settings)
-    {
-        super(settings);
-    }
+    public SchoolChanger(Settings settings) { super(settings); }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand)
     {
         ItemStack itemStack = player.getStackInHand(hand);
 
-        // Only execute on server side
         if (!world.isClient)
         {
             UUID playerID = player.getUuid();
@@ -33,9 +43,8 @@ public class SchoolChanger extends Item
             try
             {
                 SchoolManager.changeSchool(playerID);
-                player.sendMessage(Text.literal("School assigned successfully! (new school: " + BAcraft.studentList.get(playerID).getSchoolName() + ")"), false);
+                player.sendMessage(Text.literal("School assigned successfully! (new school: " + BAcraft.playerMap.get(playerID).getSchoolName() + ")"), false);
 
-                // Add cooldown (in ticks, 20 ticks = 1 second)
                 player.getItemCooldownManager().set(this, 20);
 
             }
@@ -44,9 +53,9 @@ public class SchoolChanger extends Item
                 player.sendMessage(Text.literal("Failed to assign school!"), false);
             }
         }
-        // Consume on use
+
         if (!player.getAbilities().creativeMode) { itemStack.decrement(1); }
-        // return successful action
+
         return TypedActionResult.success(itemStack, world.isClient);
     }
 }

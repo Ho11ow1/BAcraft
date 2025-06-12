@@ -12,23 +12,12 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.hollow1.bacraft.schools;
+package com.hollow1.bacraft;
 //
-import com.hollow1.bacraft.common.School;
-//
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.nbt.NbtCompound;
 
-public class Millennium extends School
+public interface INBTData
 {
-    public Millennium()
-    {
-        super("Millennium", new Emblem(""));
-    }
-
-    @Override
-    public StatusEffectInstance getTickEffect()
-    {
-        return new StatusEffectInstance(StatusEffects.RESISTANCE, 1, 0, false, false);
-    }
+    void writeSchoolNBT(NbtCompound nbt);
+    void readSchoolNBT(NbtCompound nbt);
 }

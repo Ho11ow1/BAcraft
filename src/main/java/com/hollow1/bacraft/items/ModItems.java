@@ -12,9 +12,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.hollow1.bacraft;
+package com.hollow1.bacraft.items;
 //
-import com.hollow1.bacraft.items.SchoolChanger;
+import com.hollow1.bacraft.BAcraft;
 //
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -29,13 +29,13 @@ import net.minecraft.text.Text;
 
 public class ModItems
 {
-    public static final RegistryKey<ItemGroup> BA_GROUP_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BAcraft.modID, "ba_tab"));
+    public static final RegistryKey<ItemGroup> BA_GROUP_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BAcraft.MOD_ID, "ba_tab"));
     public static final ItemGroup BA_GROUP = FabricItemGroup.builder()
         .icon(() -> new ItemStack(Items.BOOK))
         .displayName(Text.literal("BAcraft Items"))
         .build();
 
-    public static final Item schoolChanger = new SchoolChanger(new Item.Settings());
+    public static final Item SCHOOL_CHANGER = new SchoolChanger(new Item.Settings());
 
     public static void registerItems()
     {
@@ -43,7 +43,7 @@ public class ModItems
         Registry.register(Registries.ITEM_GROUP, BA_GROUP_KEY, BA_GROUP);
 
         // Register item to /give
-        Registry.register(Registries.ITEM, new Identifier(BAcraft.modID, "school_changer"), schoolChanger);
+        Registry.register(Registries.ITEM, new Identifier(BAcraft.MOD_ID, "school_changer"), SCHOOL_CHANGER);
 
         addItemEntries();
     }
@@ -52,7 +52,7 @@ public class ModItems
     {
         // Add items to BA_GROUP
         ItemGroupEvents.modifyEntriesEvent(BA_GROUP_KEY).register(entries -> {
-            entries.add(schoolChanger);
+            entries.add(SCHOOL_CHANGER);
         });
     }
 }
