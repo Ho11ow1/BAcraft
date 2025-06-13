@@ -53,7 +53,7 @@ public class BAcraftClient implements  ClientModInitializer
             int x = 5;
             int y = 5;
 
-            String schoolName = BAcraft.playerMap.get(playerID).getSchoolName();
+            String schoolName = BAcraft.playerCacheMap.get(playerID).getSchoolName();
 
             Identifier textureId = new Identifier(BAcraft.MOD_ID, "textures/emblems/" + schoolName.toLowerCase() + ".png");
             if (client.getTextureManager().getTexture(textureId) != null)

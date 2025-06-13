@@ -12,23 +12,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.hollow1.bacraft.schools;
+package com.hollow1.bacraft.data;
 //
-import com.hollow1.bacraft.data.School;
-//
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 
-public class Arius extends School
+public interface IPersistentPlayerData
 {
-    public Arius()
-    {
-        super("Arius", new Emblem(""));
-    }
-
-    @Override
-    public StatusEffectInstance getTickEffect()
-    {
-        return new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 1, 0, false, false);
-    }
+    PlayerData getPlayerData();
 }

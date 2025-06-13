@@ -12,36 +12,38 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.hollow1.bacraft.common;
+package com.hollow1.bacraft.data;
 //
-import com.hollow1.bacraft.INBTData;
 //
 import net.minecraft.nbt.NbtCompound;
-//
-import java.util.UUID;
 
 public class PlayerData implements INBTData
 {
-    private final UUID playerID;
     private School school;
 
-    public PlayerData(UUID playerID, School school)
-    {
-        this.playerID = playerID;
-        this.school = school;
-    }
+    public PlayerData() { this.school = null; }
 
+    public School getSchool() { return school; }
+    public void setSchool(School school) { this.school = school; }
     public String getSchoolName() { return school.getSchoolName(); }
 
+
     @Override
-    public void writeSchoolNBT(NbtCompound nbt) // Add saving to file
+    public void writeToNbt(NbtCompound nbt)
     {
-        nbt.putString("school", getSchoolName());
+        if (this.school != null)
+        {
+            nbt.putString("school", getSchoolName());
+        }
     }
 
     @Override
-    public void readSchoolNBT(NbtCompound nbt)
+    public void readFromNbt(NbtCompound nbt)
     {
-        this.school = School.getSchoolByName(nbt.getString("school"));
+        if (nbt.contains("school", NbtCompound.STRING_TYPE))
+        {
+            String schoolName = nbt.getString("school");
+            this.school = School.getSchoolByName(schoolName);
+        }
     }
 }

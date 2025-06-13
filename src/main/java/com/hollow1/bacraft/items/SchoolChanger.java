@@ -15,7 +15,7 @@
 package com.hollow1.bacraft.items;
 //
 import com.hollow1.bacraft.BAcraft;
-import com.hollow1.bacraft.common.SchoolManager;
+import com.hollow1.bacraft.data.SchoolManager;
 //
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -42,8 +42,8 @@ public class SchoolChanger extends Item
 
             try
             {
-                SchoolManager.changeSchool(playerID);
-                player.sendMessage(Text.literal("School assigned successfully! (new school: " + BAcraft.playerMap.get(playerID).getSchoolName() + ")"), false);
+                SchoolManager.changeSchool(player);
+                player.sendMessage(Text.literal("School assigned successfully! (new school: " + BAcraft.playerCacheMap.get(playerID).getSchoolName() + ")"), false);
 
                 player.getItemCooldownManager().set(this, 20);
 

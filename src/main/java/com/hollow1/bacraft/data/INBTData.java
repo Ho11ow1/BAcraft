@@ -12,12 +12,12 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.hollow1.bacraft;
+package com.hollow1.bacraft.data;
 //
 import net.minecraft.nbt.NbtCompound;
 
 public interface INBTData
 {
-    void writeSchoolNBT(NbtCompound nbt);
-    void readSchoolNBT(NbtCompound nbt);
+    void writeToNbt(NbtCompound nbt);
+    void readFromNbt(NbtCompound nbt);
 }

@@ -12,7 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.hollow1.bacraft.common;
+package com.hollow1.bacraft.data;
 //
 import com.hollow1.bacraft.schools.*;
 //
@@ -34,8 +34,6 @@ public abstract class School
         this.emblem = emblem;
     }
 
-    public String getSchoolName() { return schoolName; }
-
     public static void initializeSchools()
     {
         schoolList.add(new Abydos());
@@ -52,6 +50,7 @@ public abstract class School
         schoolList.add(new Valkyrie());
     }
 
+    public String getSchoolName() { return schoolName; }
     public static School getSchoolByName(String schoolName)
     {
         switch (schoolName)

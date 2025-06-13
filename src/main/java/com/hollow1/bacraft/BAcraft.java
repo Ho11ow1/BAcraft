@@ -14,16 +14,17 @@
 */
 package com.hollow1.bacraft;
 //
-import com.hollow1.bacraft.common.PlayerData;
+import com.hollow1.bacraft.data.PlayerData;
 import com.hollow1.bacraft.items.ModItems;
-import com.hollow1.bacraft.common.School;
-import com.hollow1.bacraft.common.SchoolManager;
+import com.hollow1.bacraft.data.School;
+import com.hollow1.bacraft.data.SchoolManager;
 //
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 //
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -38,7 +39,7 @@ import java.util.UUID;
 public class BAcraft implements ModInitializer
 {
     public static final String MOD_ID = "bacraft";
-    public static Map<UUID, PlayerData> playerMap = new HashMap<UUID, PlayerData>();
+    public static Map<UUID, PlayerData> playerCacheMap = new HashMap<UUID, PlayerData>();
     private final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override
@@ -64,25 +65,24 @@ public class BAcraft implements ModInitializer
     private void onPlayerJoin(ServerPlayerEntity player)
     {
         UUID playerID = player.getUuid();
-        SchoolManager.assignSchool(playerID);
+        SchoolManager.assignSchool((PlayerEntity)player);
 
-        String schoolName = BAcraft.playerMap.get(playerID).getSchoolName();
+        String schoolName = BAcraft.playerCacheMap.get(playerID).getSchoolName();
+
         player.sendMessage(Text.literal("You've been assigned to the school of " + schoolName + "."), false);
-
-        LOGGER.info("Assigned school({}) to player({})", playerMap.get(playerID).getSchoolName() , player.getName().getString());
+        LOGGER.info("Assigned school({}) to player({})", playerCacheMap.get(playerID).getSchoolName() , player.getName().getString());
     }
 
     private void onPlayerLeave(ServerPlayerEntity player)
     {
-        // Emblem disappears with the player
-        // Save school to NBT
+
     }
 
     private void applySchoolEffects(MinecraftServer server)
     {
         for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList())
         {
-            School school = School.getSchoolByName(playerMap.get(player.getUuid()).getSchoolName());
+            School school = School.getSchoolByName(playerCacheMap.get(player.getUuid()).getSchoolName());
             if (school == null) { return; }
 
             StatusEffectInstance effect = school.getTickEffect();

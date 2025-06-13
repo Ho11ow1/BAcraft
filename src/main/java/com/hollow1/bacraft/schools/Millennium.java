@@ -14,7 +14,7 @@
 */
 package com.hollow1.bacraft.schools;
 //
-import com.hollow1.bacraft.common.School;
+import com.hollow1.bacraft.data.School;
 //
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
