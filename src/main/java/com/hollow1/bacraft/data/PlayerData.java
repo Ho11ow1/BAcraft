@@ -17,7 +17,7 @@ package com.hollow1.bacraft.data;
 //
 import net.minecraft.nbt.NbtCompound;
 
-public class PlayerData implements INBTData
+public class PlayerData implements INbtManager
 {
     private School school;
 

@@ -53,43 +53,23 @@ public abstract class School
     public String getSchoolName() { return schoolName; }
     public static School getSchoolByName(String schoolName)
     {
-        switch (schoolName)
+        for (School school : schoolList)
         {
-            case "Abydos":
-                return new Abydos();
-            case "Arius":
-                return new Arius();
-            case "Gehenna":
-                return new Gehenna();
-            case "HighLander":
-                return new HighLander();
-            case "Hyakkiyako":
-                return new Hyakkiyako();
-            case "Millennium":
-                return new Millennium();
-            case "RedWinter":
-                return new RedWinter();
-            case "Schale":
-                return new Schale();
-            case "Shanhaijing":
-                return new Shanhaijing();
-            case "SpecialResponeTeam":
-                return new SpecialResponeTeam();
-            case "Trinity":
-                return new Trinity();
-            case "Valkyrie":
-                return new Valkyrie();
-            default:
-                return null;
+            if (school.schoolName.equals(schoolName))
+            {
+                return school;
+            }
         }
+        return null;
     }
 
     public static class Emblem
     {
-        private final String texturePath;
+        private String texturePath;
 
         public Emblem(String texturePath) { this.texturePath = texturePath; }
 
         public String getPath() { return texturePath; }
+        public void setPath(String texturePath) { this.texturePath = texturePath; }
     }
 }

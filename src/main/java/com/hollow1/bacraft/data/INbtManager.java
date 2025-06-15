@@ -16,7 +16,7 @@ package com.hollow1.bacraft.data;
 //
 import net.minecraft.nbt.NbtCompound;
 
-public interface INBTData
+public interface INbtManager
 {
     void writeToNbt(NbtCompound nbt);
     void readFromNbt(NbtCompound nbt);
