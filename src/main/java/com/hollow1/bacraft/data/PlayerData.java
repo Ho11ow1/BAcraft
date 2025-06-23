@@ -1,0 +1,49 @@
+/* Copyright 2025 Hollow1
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+package com.hollow1.bacraft.data;
+//
+//
+import net.minecraft.nbt.NbtCompound;
+
+public class PlayerData implements INbtManager
+{
+    private School school;
+
+    public PlayerData() { this.school = null; }
+
+    public School getSchool() { return school; }
+    public void setSchool(School school) { this.school = school; }
+    public String getSchoolName() { return school.getSchoolName(); }
+
+
+    @Override
+    public void writeToNbt(NbtCompound nbt)
+    {
+        if (this.school != null)
+        {
+            nbt.putString("school", getSchoolName());
+        }
+    }
+
+    @Override
+    public void readFromNbt(NbtCompound nbt)
+    {
+        if (nbt.contains("school", NbtCompound.STRING_TYPE))
+        {
+            String schoolName = nbt.getString("school");
+            this.school = School.getSchoolByName(schoolName);
+        }
+    }
+}

@@ -14,12 +14,21 @@
 */
 package com.hollow1.bacraft.schools;
 //
+import com.hollow1.bacraft.data.School;
+//
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 
 public class Trinity extends School
 {
     public Trinity()
     {
-        super("trinity", new Emblem(""));
+        super("Trinity", new Emblem(""));
     }
 
+    @Override
+    public StatusEffectInstance getTickEffect()
+    {
+        return new StatusEffectInstance(StatusEffects.STRENGTH, 1, 0, false, false);
+    }
 }

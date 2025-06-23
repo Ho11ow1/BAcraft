@@ -15,6 +15,9 @@
 			"com.hollow1.bacraft.BAcraftClient"
 		]
 	},
+	"mixins": [
+		"mixins.bacraft.json"
+	],
 	"depends": {
 		"fabricloader": ">=0.15.3",
 		"fabric": "*",

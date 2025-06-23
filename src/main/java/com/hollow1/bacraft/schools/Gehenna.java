@@ -19,16 +19,16 @@ import com.hollow1.bacraft.data.School;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 
-public class Millennium extends School
+public class Gehenna extends School
 {
-    public Millennium()
+    public Gehenna()
     {
-        super("Millennium", new Emblem(""));
+        super("Gehenna", new Emblem(""));
     }
 
     @Override
     public StatusEffectInstance getTickEffect()
     {
-        return new StatusEffectInstance(StatusEffects.RESISTANCE, 1, 0, false, false);
+        return new StatusEffectInstance(StatusEffects.ABSORPTION, 1, 0, false, false);
     }
 }

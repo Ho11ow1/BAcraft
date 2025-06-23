@@ -53,9 +53,9 @@ public class BAcraftClient implements  ClientModInitializer
             int x = 5;
             int y = 5;
 
-            String schoolName = BAcraft.studentList.get(playerID).getSchoolName();
+            String schoolName = BAcraft.playerCacheMap.get(playerID).getSchoolName();
 
-            Identifier textureId = new Identifier(BAcraft.modID, "textures/emblems/" + schoolName + ".png");
+            Identifier textureId = new Identifier(BAcraft.MOD_ID, "textures/emblems/" + schoolName.toLowerCase() + ".png");
             if (client.getTextureManager().getTexture(textureId) != null)
             {
                 context.drawText(client.textRenderer, Text.literal("School: "), x, y, 0xFFFFFF, true);
@@ -70,10 +70,6 @@ public class BAcraftClient implements  ClientModInitializer
                 context.drawTexture(textureId, 0, 0, 0, 0, 32, 29, 32, 29);
                 // Restore matrix state
                 context.getMatrices().pop();
-            }
-            else
-            {
-                context.drawText(client.textRenderer, Text.literal("Texture not found " + schoolName), x, y, 0xFFFFFF, true);
             }
         }
     }

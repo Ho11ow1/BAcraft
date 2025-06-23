@@ -17,18 +17,17 @@ package com.hollow1.bacraft.schools;
 import com.hollow1.bacraft.data.School;
 //
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 
-public class Millennium extends School
+public class HighLander extends School
 {
-    public Millennium()
+    public HighLander()
     {
-        super("Millennium", new Emblem(""));
+        super("HighLander", new Emblem(""));
     }
 
     @Override
     public StatusEffectInstance getTickEffect()
     {
-        return new StatusEffectInstance(StatusEffects.RESISTANCE, 1, 0, false, false);
+        return null;
     }
 }
